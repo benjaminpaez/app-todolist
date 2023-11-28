@@ -1,8 +1,7 @@
-import PlaylistAddSharpIcon from "@mui/icons-material/PlaylistAddSharp";
-import { Box, Button, Container, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import PlaylistAddSharpIcon from "@mui/icons-material/PlaylistAddSharp"
+import { Box, Button, Container, TextField} from "@mui/material"
+import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid'
-import { AlertSuccess } from "../Animations";
 
 export const TaskForm = ({addTask}) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,15 +21,15 @@ export const TaskForm = ({addTask}) => {
       id: uuidv4(),
       createAt: new Date().toDateString()
     }
-    addTask(newTask);
-    <AlertSuccess/>
+    addTask(newTask)
+
     closeModal()
   }
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '75%', height: '70%'}}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '65vh', height: '70hv'}}>
       <Button
         variant="contained"
-        color="success"
+        color="primary"
         endIcon={<PlaylistAddSharpIcon />}
         onClick={openModal}
       >
@@ -43,11 +42,11 @@ export const TaskForm = ({addTask}) => {
           borderRadius: '3px', 
           p: 1,
           width: '60%',
-          marginTop: 3 
+          marginTop: 3,
         }}>
-          <Typography align="center" variant="h4">
-            Nueva tarea
-          </Typography>
+          <h1 style={{textAlign: 'center'}} >
+            Ingresa una tarea
+          </h1>
           <form
             onSubmit={handleTask}
             style={{
@@ -59,14 +58,14 @@ export const TaskForm = ({addTask}) => {
             }}
           >
             <div>
-              <Typography align="left" variant="h6">
+              <h4>
                 Ingrese un titulo
-              </Typography>
+              </h4>
               <TextField label="Título" variant="outlined" margin="normal" name="title"/>
 
-              <Typography align="left" variant="h6">
+              <h4>
                 Ingrese una descripcion
-              </Typography>
+              </h4>
               <TextField
                 label="Descripción"
                 variant="outlined"
@@ -95,5 +94,5 @@ export const TaskForm = ({addTask}) => {
         </Container>
       )}
     </div>
-  );
-};
+  )
+}
